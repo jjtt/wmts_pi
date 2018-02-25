@@ -77,7 +77,9 @@ wmts_pi::~wmts_pi(void)
 
 int wmts_pi::Init(void)
 {
-    return PLUGIN_OPTIONS;
+  m_tool_id = InsertPlugInTool(_T(""), _img_wmts, _img_wmts, wxITEM_CHECK, _("WMTS"), _T(""), NULL, WMTS_TOOL_POSITION, 0, this);
+
+  return PLUGIN_OPTIONS;
 }
 
 bool wmts_pi::DeInit(void)
@@ -132,6 +134,7 @@ int wmts_pi::GetToolbarToolCount(void)
 
 void wmts_pi::OnToolbarToolCallback(int id)
 {
+  wxLogMessage(wxT("WMTS_pi: OnToolbarToolCallback - start"));
 }
 
 void wmts_pi::ShowPreferencesDialog( wxWindow* parent )

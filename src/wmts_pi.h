@@ -44,7 +44,6 @@
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    7
 
-class Dlg;
 
 //----------------------------------------------------------------------------------------------------------
 //    The PlugIn Class Definition
@@ -52,6 +51,8 @@ class Dlg;
 
 #define PLUGIN_OPTIONS \
   ( WANTS_OVERLAY_CALLBACK | WANTS_TOOLBAR_CALLBACK )
+
+#define WMTS_TOOL_POSITION -1
 
 class wmts_pi : public opencpn_plugin_17
 {
@@ -87,6 +88,8 @@ public:
 //    Other public methods
 
 private:
+
+  int m_tool_id;
       
 };
 
