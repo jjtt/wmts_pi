@@ -17,10 +17,10 @@ msgstr ""
 "X-Crowdin-File: /plugins/DR_pi/po/DR_pi.pot\n"
 #
 msgid "WMTS"
-msgstr ""
+msgstr "WMTS"
 #
 msgid "WMTS - long description"
-msgstr ""
+msgstr "WMTS - pitkä kuvaus"
 #
 msgid "WMTS - short description"
-msgstr ""
+msgstr "WMTS - lyhyt kuvaus"
