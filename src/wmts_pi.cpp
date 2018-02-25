@@ -77,7 +77,7 @@ wmts_pi::~wmts_pi(void)
 
 int wmts_pi::Init(void)
 {
-    return 0;
+    return PLUGIN_OPTIONS;
 }
 
 bool wmts_pi::DeInit(void)
@@ -134,9 +134,15 @@ void wmts_pi::OnToolbarToolCallback(int id)
 {
 }
 
-
 void wmts_pi::ShowPreferencesDialog( wxWindow* parent )
 {
 }
 
+bool wmts_pi::RenderOverlay( wxDC &dc, PlugIn_ViewPort *vp )
+{
+  wxLogMessage(wxT("WMTS_pi: RenderOverlay - start"));
+  dc.DrawCircle(100,100,50);
+  wxLogMessage(wxT("WMTS_pi: RenderOverlay - end"));
+  return true;
+}
 

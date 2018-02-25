@@ -50,6 +50,9 @@ class Dlg;
 //    The PlugIn Class Definition
 //----------------------------------------------------------------------------------------------------------
 
+#define PLUGIN_OPTIONS \
+  ( WANTS_OVERLAY_CALLBACK | WANTS_TOOLBAR_CALLBACK )
+
 class wmts_pi : public opencpn_plugin_17
 {
 public:
@@ -73,6 +76,7 @@ public:
       int GetToolbarToolCount(void);
       void ShowPreferencesDialog( wxWindow* parent );
       void OnToolbarToolCallback(int id);
+      bool RenderOverlay(wxDC &dc, PlugIn_ViewPort *vp);
      
 
 //    Optional plugin overrides
