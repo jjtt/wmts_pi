@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------
 
 #define PLUGIN_OPTIONS \
-  ( WANTS_OVERLAY_CALLBACK | WANTS_TOOLBAR_CALLBACK )
+  ( WANTS_OVERLAY_CALLBACK | WANTS_TOOLBAR_CALLBACK | INSTALLS_TOOLBAR_TOOL )
 
 #define WMTS_TOOL_POSITION -1
 
@@ -90,6 +90,8 @@ public:
 private:
 
   int m_tool_id;
+  wxBitmap m_icon_normal;
+  wxBitmap m_icon_hilight;
       
 };
 

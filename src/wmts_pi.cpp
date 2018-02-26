@@ -65,19 +65,34 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 wmts_pi::wmts_pi(void *ppimgr)
       :opencpn_plugin_17 (ppimgr)
 {
-      // Create the PlugIn icons
-      initialize_images();
+  // Create the PlugIn icons
+  initialize_images();
 }
-
+ 
 wmts_pi::~wmts_pi(void)
 {
-     delete _img_wmts_pi;
-     delete _img_wmts;
+  delete _img_wmts_pi;
+  delete _img_wmts;
 }
 
 int wmts_pi::Init(void)
 {
-  m_tool_id = InsertPlugInTool(_T(""), _img_wmts, _img_wmts, wxITEM_CHECK, _("WMTS"), _T(""), NULL, WMTS_TOOL_POSITION, 0, this);
+  wxLogMessage(wxT("WMTS_pi: init"));
+
+  wxString iconLocation = *GetpSharedDataLocation() + _T("plugins") + wxFileName::GetPathSeparator() + _T("wmts_pi") + wxFileName::GetPathSeparator() + _T("data") + wxFileName::GetPathSeparator();
+  wxLogMessage(wxT("WMTS_pi: icon location: %s"), iconLocation);
+
+  wxString iconNormal = iconLocation + wxT("icon.png");
+  wxString iconHilight = iconLocation + wxT("icon_h.png");
+
+  wxImage imgNormal(iconNormal, wxBITMAP_TYPE_PNG);
+  wxImage imgHilight(iconHilight, wxBITMAP_TYPE_PNG);
+
+  m_icon_normal.LoadFile(iconNormal, wxBITMAP_TYPE_PNG);
+  m_icon_hilight.LoadFile(iconHilight, wxBITMAP_TYPE_PNG);
+  
+  //m_tool_id = InsertPlugInTool(_T(""), _img_wmts, _img_wmts, wxITEM_CHECK, _("WMTS"), _T(""), NULL, WMTS_TOOL_POSITION, 0, this);
+  m_tool_id = InsertPlugInTool(_T(""), &m_icon_normal, &m_icon_hilight, wxITEM_NORMAL, _("WMTS"), _T(""), NULL, WMTS_TOOL_POSITION, 0, this);
 
   return PLUGIN_OPTIONS;
 }
