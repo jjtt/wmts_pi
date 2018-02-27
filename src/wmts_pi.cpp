@@ -160,7 +160,15 @@ bool wmts_pi::RenderOverlay( wxDC &dc, PlugIn_ViewPort *vp )
 {
   wxLogMessage(wxT("WMTS_pi: RenderOverlay - start"));
   dc.DrawCircle(100,100,50);
+
+  wxString test = wxT("/home/annika/src/wmts.png");
+
+  wxBitmap imgBmp(test, wxBITMAP_TYPE_PNG);
+
+  dc.DrawBitmap(imgBmp, 200, 200);
+
   wxLogMessage(wxT("WMTS_pi: RenderOverlay - end"));
+
   return true;
 }
 
